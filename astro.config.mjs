@@ -20,6 +20,7 @@ export default defineConfig({
 					],
 				},
 			],
+			favicon: '/favicon.png',
 		}),
 	],
 });
