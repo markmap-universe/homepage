@@ -14,7 +14,7 @@ export default defineConfig({
 			sidebar: [
 				{ label: 'Overview', slug: 'overview' },
 				{
-					label: 'Repositories',
+					label: 'Packages',
 					items: [
 						{ label: 'hexo-markmap', slug: 'hexo-markmap' },
 						{ label: 'remark-markmap', slug: 'remark-markmap' },
