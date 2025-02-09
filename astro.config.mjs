@@ -12,11 +12,12 @@ export default defineConfig({
 				github: 'https://github.com/markmap-universe',
 			},
 			sidebar: [
+				{ label: 'Overview', slug: 'overview' },
 				{
-					label: 'Guides',
+					label: 'Repositories',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'List of Tools', slug: 'tools/example' },
+						{ label: 'hexo-markmap', slug: 'hexo-markmap' },
+						{ label: 'remark-markmap', slug: 'remark-markmap' },
 					],
 				},
 			],

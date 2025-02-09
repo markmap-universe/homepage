@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+}
+const { href } = Astro.props;
+---
+<div class="card-readmore">
+  <a {href}><slot/></a>
+</div>
+
+<style>
+.card-readmore {
+  text-align: right;
+  margin-top: 0!important;
+}
+</style>
