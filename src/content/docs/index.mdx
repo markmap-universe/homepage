@@ -17,6 +17,27 @@ hero:
 import { Card, CardGrid } from '@astrojs/starlight/components';
 import CardReadmore from '@/components/CardReadmore.astro';
 
+```markmap
+---
+style: |
+  .mm-toolbar-item:not(:first-child) {
+    margin: 0 0 0 0.25rem;
+  }
+  #${id} {
+    background: transparent;
+    border: 1px solid var(--sl-color-gray-5);
+    height: 200px;
+  }
+options:
+  zoom: false
+---
+# markmap
+## beautiful
+## useful
+## easy
+## interactive
+```
+
 <CardGrid>
 	<Card title="hexo-markmap" icon="document">
 		Insert mindmap in your hexo blog by markmap.<br/>在 hexo 博客中插入思维导图。

@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import remarkMarkmap from 'remark-markmap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,4 +25,9 @@ export default defineConfig({
 			favicon: '/favicon.png',
 		}),
 	],
+	markdown: {
+		remarkPlugins: [
+			[remarkMarkmap,{darkThemeCssSelector: '[data-theme=dark]'}]
+		]
+	}
 });
