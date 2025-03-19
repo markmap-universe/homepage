@@ -23,6 +23,9 @@ export default defineConfig({
 				},
 			],
 			favicon: '/favicon.png',
+			editLink: {
+			  baseUrl: 'https://github.com/markmap-universe/homepage/tree/main/',
+			},
 		}),
 	],
 	markdown: {
