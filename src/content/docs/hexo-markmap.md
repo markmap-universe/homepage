@@ -16,11 +16,14 @@ title: hexo-markmap
   }
 </style>
 
-Insert mindmap in your hexo blog by markmap.
+> Depend on [markmap](https://github.com/gera2ld/markmap). Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap).
 
-From now all the syntax like HTML codes, links, inline code, markdown KaTeX, and Codeblocks are possible to use.
+> [!WARNING]
+> This is the documentation for `hexo-markmap@2`. If you are using `hexo-markmap@1`, please check [here](https://github.com/markmap-universe/hexo-markmap/tree/legacy).
+>
+> The configuration files of `hexo-markmap@2` are **incompatible** with `hexo-markmap@1`. And it has more strict type checking.
 
-> More preview in [this site](https://hexo.markmap.org/posts/markmap-example/).
+Insert mindmap in your hexo blog by Markmap.
 
 # Install
 
@@ -39,9 +42,13 @@ yarn add hexo-markmap --dev
 
 # Usage
 
-```
+```markdown
 {% markmap %}
 ---
+style: |
+  #${id} {
+    height: 300px; /* Equivalent to {% markmap 300px %} */
+  }
 options:
   colorFreezeLevel: 2
 ---
@@ -50,9 +57,12 @@ options:
 {% endmarkmap %}
 ```
 
-## Frontmatter Options
+## Options
 
-The frontmatter integrates style and jsonOptions.
+### Frontmatter Options
+
+Just like you use Frontmatter in your Markdown files in Hexo, you can use Frontmatter in the `markmap` tag to customize your mindmap!
+
 ```yaml
 id: markmap-example
 style: |
@@ -75,10 +85,22 @@ The `${id}` placeholder can be used in the style field. During rendering, it wil
 - **`options`** : Correspond to the [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html) in the markmap project. For more details, please refer to [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list).
 
 
+### Tag Options
+
+You can also specify the height of the mindmap directly in the tag.
+
+```markdown
+{% markmap 300px %}
+# Markdown
+# Syntax
+{% endmarkmap %}
+```
 
 ## Example 
 
-````
+<details>
+
+````markdown
 {% markmap %}
 ---
 id: markmap-example
@@ -138,6 +160,8 @@ console.log('hello, JavaScript')
 {% endmarkmap %}
 ````
 
+</details>
+
 ## Config
 
 Add your options to `config.yml`.
@@ -150,8 +174,10 @@ By default, it works well. Each option has a default value.
 ```yaml
 hexo_markmap:
   darkThemeCssSelector: '.dark'
+  CDN: 'fastly'
 ```
-- **`darkThemeCssSelector`** : Used to specify the CSS selector for the dark theme.
+- **`darkThemeCssSelector`** : Used to specify the CSS selector for the dark theme.  
+- **`CDN`** : Used to specify the CDN for Markmap. The supported values are `fastly`, `jsdelivr`, and `unpkg`.
 
 # Contributors
 
@@ -160,3 +186,6 @@ Thanks to all contributors🥰!
 <a href="https://github.com/maxchang3/hexo-markmap/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=maxchang3/hexo-markmap" />
 </a>
+
+**Thanks to [@coderxi1](https://github.com/coderxi1/) for the conception and initial implementation of version 2!**
+
