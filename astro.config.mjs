@@ -26,6 +26,9 @@ export default defineConfig({
 			editLink: {
 			  baseUrl: 'https://github.com/markmap-universe/homepage/tree/main/',
 			},
+			customCss: [
+				'./src/styles/custom.css',
+			]
 		}),
 	],
 	markdown: {

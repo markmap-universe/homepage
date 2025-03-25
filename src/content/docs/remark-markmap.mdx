@@ -1,6 +1,7 @@
 ---
 title: remark-markmap
 ---
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 <div id="badges">
 
@@ -10,11 +11,6 @@ title: remark-markmap
 
 </div>
 
-<style>
-  #badges img {
-    display: inline-block;
-  }
-</style>
 
 A remark plugin to insert mindmap in markdown. Simply insert a code block in markdown to render the mindmap. 
 
@@ -24,15 +20,23 @@ A remark plugin to insert mindmap in markdown. Simply insert a code block in mar
 
 ## Installation
 
+<Tabs syncKey="pkg">
+<TabItem label="pnpm">
 ```sh
 pnpm install remark-markmap
 ```
+</TabItem>
+<TabItem label="npm">
 ```sh
 npm install remark-markmap
 ```
+</TabItem>
+<TabItem label="yarn">
 ```sh
 yarn add remark-markmap
 ```
+</TabItem>
+</Tabs>
 
 ## Options
 

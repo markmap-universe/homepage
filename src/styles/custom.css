@@ -1,0 +1,13 @@
+#badges img {
+    display: inline-block;
+}
+.expressive-code {
+    margin: 0 0 1.25em;
+}
+.expressive-code .header {
+    z-index: -1 !important;
+}
+.expressive-code .frame.is-terminal .header::before {
+    opacity: 100% !important;
+    background: linear-gradient(to right, #fc625d 33.33%, #fdbc40 33.33% 66.66%, #35cd4b 66.66%);
+}
