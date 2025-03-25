@@ -1,6 +1,7 @@
 ---
 title: hexo-markmap
 ---
+import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
 
 <div id="badges">
 
@@ -10,35 +11,39 @@ title: hexo-markmap
 
 </div>
 
-<style>
-  #badges img {
-    display: inline-block;
-  }
-</style>
+Insert mindmap in your hexo blog by Markmap.
 
-> Depend on [markmap](https://github.com/gera2ld/markmap). Inspired by [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap).
+<Aside type="caution">
 
-> [!WARNING]
-> This is the documentation for `hexo-markmap@2`. If you are using `hexo-markmap@1`, please check [here](https://github.com/markmap-universe/hexo-markmap/tree/legacy).
->
-> The configuration files of `hexo-markmap@2` are **incompatible** with `hexo-markmap@1`.
->
-> If you want to upgrade to `hexo-markmap@2`, please check [here](#upgrade-to-hexo-markmap-v2).
+This is the documentation for `hexo-markmap@2`. If you are using `hexo-markmap@1`, please check [here](https://github.com/markmap-universe/hexo-markmap/tree/legacy).
+
+The configuration files of `hexo-markmap@2` are **incompatible** with `hexo-markmap@1`.
+
+If you want to upgrade to `hexo-markmap@2`, please check [here](#upgrade-to-hexo-markmap-v2).
+
+</Aside>
 
 ## Install
 
-```
+<Tabs syncKey="pkg">
+<TabItem label="pnpm">
+```sh
 pnpm add hexo-markmap -D
 ```
+</TabItem>
 
-```
+<TabItem label="npm">
+```sh
 npm install hexo-markmap --save-dev
 ```
+</TabItem>
 
-
-```
+<TabItem label="yarn">
+```sh
 yarn add hexo-markmap --dev
 ```
+</TabItem>
+</Tabs>
 
 ## Usage
 
@@ -203,20 +208,28 @@ To upgrade to `hexo-markmap@2`, follow these steps:
 
 1. Install `hexo-markmap@2` using your preferred package manager:
 
-    ```bash
-    pnpm add hexo-markmap@2 -D
-    ```
-    ```bash
-    npm install hexo-markmap@2 --save-dev
-    ```
-    ```bash
-    yarn add hexo-markmap@2 -D
-    ```
+    <Tabs syncKey="pkg">
+      <TabItem label="pnpm">
+        ```sh
+        pnpm add hexo-markmap@2 -D
+        ```
+      </TabItem>
+      <TabItem label="npm">
+        ```sh
+        npm install hexo-markmap@2 --save-dev
+        ```
+      </TabItem>
+      <TabItem label="yarn">
+        ```sh
+        yarn add hexo-markmap@2 -D
+        ```
+      </TabItem>
+    </Tabs>
 
 2. Modify your `config.yml` as needed:
 
    - The following configuration options are **no longer supported**:
-      ```diff
+      ```diff lang="yaml"
       hexo_markmap:
       -  pjax: false
       -  katex: false
@@ -229,15 +242,15 @@ To upgrade to `hexo-markmap@2`, follow these steps:
       - You can disable `pan` and `zoom` in the Frontmatter `options` to achieve the `lockView` effect.
 
    - `CDN` configuration logic has also changed:
-      ```diff
+      ```diff lang="yaml"
       hexo_markmap:
       -  - userCDN:
       -      d3_js: https://fastly.jsdelivr.net/npm/d3@6
       -      markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
       -      katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
       -      prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
-      + CDN: 'custom'
-      + customCDN: 'https://fastly.jsdelivr.net/npm/'
+      +  CDN: 'custom'
+      +  customCDN: 'https://fastly.jsdelivr.net/npm/'
       ```
       - The new `CDN` setting supports `fastly`, `jsdelivr`, `unpkg`, and a `custom` option;
       - If you choose `custom`, the `customCDN` value will be used as the CDN prefix.
