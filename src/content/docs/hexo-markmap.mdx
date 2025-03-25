@@ -1,7 +1,7 @@
 ---
 title: hexo-markmap
 ---
-import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+import { Tabs, TabItem, Aside, Steps } from '@astrojs/starlight/components';
 
 <div id="badges">
 
@@ -206,6 +206,7 @@ Note that some implementation details differ from `hexo-markmap@1`. If you do no
 
 To upgrade to `hexo-markmap@2`, follow these steps:
 
+<Steps>
 1. Install `hexo-markmap@2` using your preferred package manager:
 
     <Tabs syncKey="pkg">
@@ -258,7 +259,7 @@ To upgrade to `hexo-markmap@2`, follow these steps:
    - Additionally, the previous `depth` parameter for setting fold levels has been removed. Instead, you can use the `initialExpandLevel` option in Frontmatter.
 
 3. Finally, regenerate your blog.
-
+</Steps>
 
 ## Contributors
 
