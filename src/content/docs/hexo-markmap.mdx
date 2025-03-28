@@ -1,7 +1,7 @@
 ---
 title: hexo-markmap
 ---
-import { Tabs, TabItem, Aside, Steps } from '@astrojs/starlight/components';
+import { Tabs, TabItem, Aside, Steps, FileTree } from '@astrojs/starlight/components';
 
 <div id="badges">
 
@@ -62,7 +62,9 @@ options:
 {% endmarkmap %}
 ```
 
-### Options
+## Inline Options
+
+You can customize each mindmap individually in the `markmap` tag.
 
 #### Frontmatter Options
 
@@ -102,74 +104,17 @@ You can also specify the height of the mindmap directly in the tag.
 {% endmarkmap %}
 ```
 
-## Example 
-
-<details>
-
-````markdown
-{% markmap %}
----
-id: markmap-example
-style: |
-  #${id} {
-    height: 300px;
-    width: 100%;
-  }
-  @media (min-width: 1280px) {
-    #${id} {
-      height: 600px;
-    }
-  }
-options:
-  colorFreezeLevel: 2
----
-
-## Links
-
-- [Website](https://markmap.js.org/)
-- [GitHub](https://github.com/gera2ld/markmap)
-
-## Related Projects
-
-- [coc-markmap](https://github.com/gera2ld/coc-markmap) for Neovim
-- [markmap-vscode](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode) for VSCode
-- [eaf-markmap](https://github.com/emacs-eaf/eaf-markmap) for Emacs
-
-## Features
-
-Note that if blocks and lists appear at the same level, the lists will be ignored.
-
-### Lists
-
-- **strong** ~~del~~ *italic* ==highlight==
-- `inline code`
-- [x] checkbox
-- Katex: $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$ <!-- markmap: fold -->
-  - [More Katex Examples](#?d=gist:af76a4c245b302206b16aec503dbe07b:katex.md)
-- Now we can wrap very very very very long text based on `maxWidth` option
-- Ordered list
-  1. item 1
-  2. item 2
-
-### Blocks
-<!-- To avoid hexo treat the following as code block, we need to use a list -->
-- ```js 
-  console.log('hello, JavaScript')
-  ```
-
-- | Products | Price |
-  |-|-|
-  | Apple | 4 |
-  | Banana | 2 |
-
-- ![](https://markmap.js.org/favicon.png)
-````
-
-</details>
-
 ## Config
 
 Add your options to `config.yml`.
+
+<FileTree>
+- src
+  - config.yml
+  - source
+    - _posts/
+</FileTree>
+
 
 Convention over configuration, if you don't need any of the following features, then you don't need to add these configs.
 
@@ -188,6 +133,8 @@ hexo_markmap:
 - **`CDN`** : Used to specify the CDN for Markmap. The supported values are `fastly`, `jsdelivr`, `unpkg`, and `custom`.
   - If set to `custom`, the `customCDN` value will be used as the CDN prefix.
 - **`customCDN`** : Defines a custom CDN URL for Markmap. This must be a valid URL.
+- **`globalOptions`** : Used to define global options for all mindmaps.    
+  - Correspond to the [`options`](#frontmatter-options) in the frontmatter.
 
 ## Upgrade to `hexo-markmap` v2
 
@@ -259,6 +206,71 @@ To upgrade to `hexo-markmap@2`, follow these steps:
 
 3. Finally, regenerate your blog.
 </Steps>
+
+
+## Example 
+
+<details>
+````markdown
+{% markmap %}
+---
+id: markmap-example
+style: |
+  #${id} {
+    height: 300px;
+    width: 100%;
+  }
+  @media (min-width: 1280px) {
+    #${id} {
+      height: 600px;
+    }
+  }
+options:
+  colorFreezeLevel: 2
+---
+
+## Links
+
+- [Website](https://markmap.js.org/)
+- [GitHub](https://github.com/gera2ld/markmap)
+
+## Related Projects
+
+- [coc-markmap](https://github.com/gera2ld/coc-markmap) for Neovim
+- [markmap-vscode](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode) for VSCode
+- [eaf-markmap](https://github.com/emacs-eaf/eaf-markmap) for Emacs
+
+## Features
+
+Note that if blocks and lists appear at the same level, the lists will be ignored.
+
+### Lists
+
+- **strong** ~~del~~ *italic* ==highlight==
+- `inline code`
+- [x] checkbox
+- Katex: $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$ <!-- markmap: fold -->
+  - [More Katex Examples](#?d=gist:af76a4c245b302206b16aec503dbe07b:katex.md)
+- Now we can wrap very very very very long text based on `maxWidth` option
+- Ordered list
+  1. item 1
+  2. item 2
+
+### Blocks
+<!-- To avoid hexo treat the following as code block, we need to use a list -->
+- ```js 
+  console.log('hello, JavaScript')
+  ```
+
+- | Products | Price |
+  |-|-|
+  | Apple | 4 |
+  | Banana | 2 |
+
+- ![](https://markmap.js.org/favicon.png)
+{% endmarkmap %}
+````
+</details>
 
 ## Contributors
 
