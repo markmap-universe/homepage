@@ -9,6 +9,9 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Markmap Universe',
+			logo: {
+				src: "~/assets/logo.png"
+			},
 			social: {
 				github: 'https://github.com/markmap-universe',
 			},
@@ -28,6 +31,7 @@ export default defineConfig({
 			},
 			customCss: [
 				'./src/styles/custom.css',
+				'./src/assets/landing.css',
 			]
 		}),
 	],
