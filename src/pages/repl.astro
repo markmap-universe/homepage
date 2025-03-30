@@ -1,0 +1,19 @@
+---
+import ReplVue from '@/components/Repl.vue'
+---
+
+<div class="main">
+  <ReplVue client:only="vue"/>
+  <!-- const { scripts=[] , styles=[] } = transformer.getAssets()
+      const assetsHtmls = [...persistCSS(styles),...persistJS(scripts, {getMarkmap: () => window.markmap})]
+      console.log(assetsHtmls.join(''))
+  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.18/dist/katex.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/styles/default.min.css">
+  <script is:inline>(t=>{window.WebFontConfig={custom:{families:["KaTeX_AMS","KaTeX_Caligraphic:n4,n7","KaTeX_Fraktur:n4,n7","KaTeX_Main:n4,n7,i4,i7","KaTeX_Math:i4,i7","KaTeX_Script","KaTeX_SansSerif:n4,n7,i4","KaTeX_Size1","KaTeX_Size2","KaTeX_Size3","KaTeX_Size4","KaTeX_Typewriter"]},active:()=>{t()?.refreshHook?.call()}}})(()=>window.markmap)</script>
+  <script is:inline src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" defer=""></script>
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/katex@0.16.18/dist/katex.min.js">
+  <script is:inline src="https://cdn.jsdelivr.net/npm/katex@0.16.18/dist/katex.min.js"></script>
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/highlight.min.js">
+  <script is:inline src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/highlight.min.js"></script>
+</div>
