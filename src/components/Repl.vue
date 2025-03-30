@@ -7,9 +7,11 @@ import { onMounted, ref, shallowRef } from 'vue'
 import { Codemirror } from 'vue-codemirror'
 import { EditorView, basicSetup } from 'codemirror'
 import { markdown } from '@codemirror/lang-markdown'
+import { yamlFrontmatter } from "@codemirror/lang-yaml"
 import { vscodeDark } from '@/assets/codemirror-theme-vscode-dark';
 
-const extensions = [basicSetup,markdown(), vscodeDark]
+const markdownWithFrontMatter = yamlFrontmatter( { content: markdown() } )
+const extensions = [basicSetup, vscodeDark, markdownWithFrontMatter]
 const cmView = shallowRef<EditorView>()
 const onCmReady = ({view}:{view:EditorView}) => cmView.value = view
 // markmap

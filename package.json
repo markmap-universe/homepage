@@ -13,6 +13,7 @@
     "@astrojs/starlight": "^0.32.3",
     "@astrojs/vue": "^5.0.8",
     "@codemirror/lang-markdown": "^6.3.2",
+    "@codemirror/lang-yaml": "^6.1.2",
     "@codemirror/language": "^6.11.0",
     "@codemirror/state": "^6.5.2",
     "@codemirror/view": "^6.36.5",
