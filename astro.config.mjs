@@ -37,7 +37,7 @@ export default defineConfig({
 	],
 	markdown: {
 		remarkPlugins: [
-			[remarkMarkmap,{darkThemeCssSelector: '[data-theme=dark]'}]
+			[remarkMarkmap,{darkThemeSelector:()=>'[data-theme=dark]'}]
 		]
 	}
 });

@@ -17,7 +17,7 @@
     "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "remark-markmap": "^1.0.8"
+    "remark-markmap": "^1.1.5"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

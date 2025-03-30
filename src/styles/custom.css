@@ -11,3 +11,11 @@
     opacity: 100% !important;
     background: linear-gradient(to right, #fc625d 33.33%, #fdbc40 33.33% 66.66%, #35cd4b 66.66%);
 }
+
+.mm-toolbar-item:not(:first-child) {
+  margin: 0 0 0 0.25rem;
+}
+
+#home-markmap-example .markmap {
+ min-height: 200px
+}
