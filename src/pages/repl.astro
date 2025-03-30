@@ -1,8 +1,9 @@
 ---
 import ReplVue from '@/components/Repl.vue'
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 ---
-
-<div class="main">
+<StarlightPage frontmatter={{title:'repl'}} hasSidebar={false}>
+<div class="main not-content">
   <ReplVue client:only="vue"/>
   <!-- const { scripts=[] , styles=[] } = transformer.getAssets()
       const assetsHtmls = [...persistCSS(styles),...persistJS(scripts, {getMarkmap: () => window.markmap})]
@@ -18,6 +19,7 @@ import ReplVue from '@/components/Repl.vue'
   <script is:inline src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/highlight.min.js"></script>
 </div>
 
+</StarlightPage>
 <style is:global>
 ::-webkit-scrollbar{
   width: 12px;
@@ -32,4 +34,22 @@ import ReplVue from '@/components/Repl.vue'
   background-color: rgba(104, 103, 103, 0.3);
 }
 
+</style>
+
+<style is:global>
+  main {
+    padding-bottom: 0
+  }
+  .right-sidebar-container,main > div:nth-child(3), .sl-container footer {
+    display: none;
+  }
+  .content-panel,.content-panel .sl-container {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .sl-markdown-content{
+    width: 100%;
+  }
 </style>

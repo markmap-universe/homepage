@@ -96,7 +96,7 @@ const onCodeChange = (code:string) => {
 }
 .main {
   overflow: hidden;
-  height: 100vh;
+  height: calc(100vh - 4.1rem);
 }
 .repl-container {
   display: flex;
