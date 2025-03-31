@@ -96,9 +96,12 @@ const onCodeChange = (code:string) => {
   margin: 0;
   padding: 0;
 }
+.main-frame { 
+  padding-top: calc(var(--sl-nav-height)) !important;
+}
 .main {
   overflow: hidden;
-  height: calc(100vh - 4.1rem);
+  height: calc(100vh - var(--sl-nav-height));
 }
 .repl-container {
   display: flex;
@@ -106,6 +109,9 @@ const onCodeChange = (code:string) => {
 }
 .codemirror * {
   font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
+}
+::-webkit-scrollbar-corner {
+  background: #1E1E1E !important;
 }
 .preview,.preview > svg {
   width: 100%;
@@ -120,5 +126,19 @@ const onCodeChange = (code:string) => {
   position: absolute;
   bottom: .5em;
   right: .5em;
+}
+@media (max-width: 768px) {
+  .repl-container {
+    flex-direction: column;
+  }
+  .cm-editor {
+    height: 50%;
+    width: 100%;
+  }
+  .preview {
+    width: 100%;
+    border-left: none;
+    border-top: solid 2px #333;
+  }
 }
 </style>
