@@ -10,24 +10,24 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.32.3",
-    "@astrojs/vue": "^5.0.8",
-    "@codemirror/lang-markdown": "^6.3.2",
+    "@astrojs/starlight": "^0.35.2",
+    "@astrojs/vue": "^5.1.0",
+    "@codemirror/lang-markdown": "^6.3.4",
     "@codemirror/lang-yaml": "^6.1.2",
-    "@codemirror/language": "^6.11.0",
+    "@codemirror/language": "^6.11.2",
     "@codemirror/state": "^6.5.2",
-    "@codemirror/view": "^6.36.5",
-    "@expressive-code/plugin-collapsible-sections": "^0.40.2",
-    "@expressive-code/plugin-line-numbers": "^0.40.2",
+    "@codemirror/view": "^6.38.1",
+    "@expressive-code/plugin-collapsible-sections": "^0.41.3",
+    "@expressive-code/plugin-line-numbers": "^0.41.3",
     "@lezer/highlight": "^1.2.1",
-    "astro": "^5.5.3",
-    "codemirror": "^6.0.0",
+    "astro": "^5.12.8",
+    "codemirror": "^6.0.2",
     "markmap-common": "^0.18.9",
-    "markmap-lib": "^0.18.11",
-    "markmap-toolbar": "^0.18.10",
-    "markmap-view": "^0.18.10",
-    "sharp": "^0.33.5",
-    "vue": "^3.5.13",
+    "markmap-lib": "^0.18.12",
+    "markmap-toolbar": "^0.18.12",
+    "markmap-view": "^0.18.12",
+    "sharp": "^0.34.3",
+    "vue": "^3.5.18",
     "vue-codemirror": "^6.1.1"
   },
   "devDependencies": {
@@ -35,7 +35,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "esbuild"
+      "esbuild",
+      "sharp"
     ]
   }
 }

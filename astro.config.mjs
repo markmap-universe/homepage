@@ -9,38 +9,38 @@ import vue from '@astrojs/vue';
 export default defineConfig({
     site: 'https://markmap.org',
     integrations: [
-			starlight({
-        title: 'Markmap Universe',
-        logo: {
-            src: "~/assets/logo.png"
-        },
-        social: {
-            github: 'https://github.com/markmap-universe',
-        },
-        sidebar: [
-            { label: 'Overview', slug: 'overview' },
-            {
-                label: 'Packages',
-                items: [
-                    { label: 'hexo-markmap', slug: 'hexo-markmap' },
-                    { label: 'remark-markmap', slug: 'remark-markmap' },
-                ],
+        starlight({
+            title: 'Markmap Universe',
+            logo: {
+                src: "~/assets/logo.png"
             },
-        ],
-        favicon: '/favicon.png',
-        editLink: {
-          baseUrl: 'https://github.com/markmap-universe/homepage/tree/main/',
-        },
-        customCss: [
-            './src/styles/custom.css',
-            './src/assets/landing.css',
-        ]
-			}),
-			vue()
-		],
+            social: [
+                { icon: 'github', label: 'GitHub', href: 'https://github.com/markmap-universe' },
+            ],
+            sidebar: [
+                { label: 'Overview', slug: 'overview' },
+                {
+                    label: 'Packages',
+                    items: [
+                        { label: 'hexo-markmap', slug: 'hexo-markmap' },
+                        { label: 'remark-markmap', slug: 'remark-markmap' },
+                    ],
+                },
+            ],
+            favicon: '/favicon.png',
+            editLink: {
+                baseUrl: 'https://github.com/markmap-universe/homepage/tree/main/',
+            },
+            customCss: [
+                './src/styles/custom.css',
+                './src/assets/landing.css',
+            ]
+        }),
+        vue()
+    ],
     markdown: {
         remarkPlugins: [
-            [remarkMarkmap,{darkThemeSelector:()=>'[data-theme=dark]'}]
+            [remarkMarkmap, { darkThemeSelector: () => '[data-theme=dark]' }]
         ]
     }
 });

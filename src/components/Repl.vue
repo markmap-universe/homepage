@@ -92,9 +92,8 @@ const onCodeChange = (code:string) => {
 </template>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
+#_top {
+  display: none;
 }
 .main-frame { 
   padding-top: calc(var(--sl-nav-height)) !important;
