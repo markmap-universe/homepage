@@ -1,9 +1,9 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
-import remarkMarkmap from 'remark-markmap';
+import { defineConfig } from 'astro/config'
+import starlight from '@astrojs/starlight'
+import remarkMarkmap from 'remark-markmap'
 
-import vue from '@astrojs/vue';
+import vue from '@astrojs/vue'
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +11,17 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'Markmap Universe',
+            defaultLocale: 'root',
+            locales: {
+                root: {
+                    label: 'English',
+                    lang: 'en',
+                },
+                'zh-cn': {
+                    label: '简体中文',
+                    lang: 'zh-CN',
+                },
+            },
             logo: {
                 src: "~/assets/logo.png"
             },
@@ -43,4 +54,4 @@ export default defineConfig({
             [remarkMarkmap, { darkThemeSelector: () => '[data-theme=dark]' }]
         ]
     }
-});
+})

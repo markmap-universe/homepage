@@ -1,0 +1,282 @@
+---
+title: hexo-markmap
+---
+import { Tabs, TabItem, Aside, Steps, FileTree } from '@astrojs/starlight/components';
+
+<div id="badges">
+
+[![Version](https://img.shields.io/npm/v/hexo-markmap)](https://npm.im/hexo-markmap)
+[![Version](https://img.shields.io/npm/d18m/hexo-markmap)](https://npm.im/hexo-markmap)
+[![GithubStars](https://img.shields.io/github/stars/markmap-universe/hexo-markmap?style=flat&logo=github&color=yellow)](https://github.com/markmap-universe/hexo-markmap)
+
+</div>
+
+在你的 Hexo 博客中插入思维导图，使用 [markmap](https://markmap.js.org/)。
+
+<Aside type="caution">
+
+这是 `hexo-markmap@2` 的文档。如果你正在使用 `hexo-markmap@1`，请查看 [这里](https://github.com/markmap-universe/hexo-markmap/tree/legacy)。
+
+如果你想升级到 `hexo-markmap@2`，请查看 [这里](#升级到-hexo-markmap2)。
+
+</Aside>
+
+## 安装
+
+<Tabs syncKey="pkg">
+<TabItem label="pnpm">
+```sh
+pnpm add hexo-markmap -D
+```
+</TabItem>
+
+<TabItem label="npm">
+```sh
+npm install hexo-markmap --save-dev
+```
+</TabItem>
+
+<TabItem label="yarn">
+```sh
+yarn add hexo-markmap --dev
+```
+</TabItem>
+</Tabs>
+
+<Aside type="tip">
+试试我们的新 VS Code 扩展 [markmap-universe](https://marketplace.visualstudio.com/items?itemName=maxchang.vscode-markmap-universe)，直接预览你的 `hexo-markmap` 思维导图。
+</Aside>
+
+## 使用
+
+```markdown
+{% markmap %}
+---
+markmap:
+  colorFreezeLevel: 2
+---
+# Markdown
+# Syntax
+{% endmarkmap %}
+```
+
+## 内联选项
+
+你可以在 markmap 标签（`{% markmap %} ... {% endmarkmap %}`）中自定义每个思维导图。
+
+### Frontmatter 选项
+
+就像你在 Hexo 中的 Markdown 文件中使用 frontmatter 一样，你可以在 `markmap` 标签中使用 frontmatter 来自定义你的思维导图！
+
+所有 frontmatter 选项都是可选的。
+
+- **`id`**：用于定义 `markmap-wrap` 元素的 ID。  
+
+- **`markmap`**：对应 markmap 项目中的 [`IMarkmapJSONOptions`](https://markmap.js.org/api/interfaces/markmap-view.IMarkmapJSONOptions.html)。有关更多详细信息，请参考 [`jsonOptions`](https://markmap.js.org/docs/json-options#option-list)。
+
+### 标签选项
+
+你还可以直接在标签中指定思维导图的高度，默认情况下会根据内容进行计算。
+
+```markdown
+{% markmap 300px %}
+# Markdown
+# Syntax
+{% endmarkmap %}
+```
+
+## 配置
+
+将相应内容追加到 `config.yml` 中。
+
+<FileTree>
+- hexo-project
+  - config.yml
+  - source
+    - _posts/
+</FileTree>
+
+
+约定大于配置，如果你不需要以下某个功能，那么无需添加该配置项。 
+
+默认情况下即可正常工作。每个选项都有默认值。
+
+### 默认配置
+
+
+```yaml
+hexo_markmap:
+  darkThemeCssSelector: '.dark'
+  CDN: 'fastly'
+```
+
+- **`darkThemeCssSelector`** : 用于指定暗黑主题的CSS选择器。
+- **`CDN`** : 用于指定 Markmap 的 CDN。目前支持的值有 `fastly` 、 `jsdelivr`、 `unpkg`。
+  - 如果设置为 `custom`，则 `customCDN` 的值将被用作 CDN 的前缀。
+- **`customCDN`** : 为 Markmap 定义自定义 CDN URL。这必须是一个有效的 URL。
+- **`globalOptions`** : 用于为所有思维导图定义全局选项。  
+  - 对应上面的 [Frontmatter 选项](#frontmatter-选项)。
+
+## 升级到 `hexo-markmap@2`
+
+`hexo-markmap@2` 是由 [@coderxi1](https://github.com/coderxi1/) 与 [@maxchang3](https://github.com/maxchang3/) 全新重构的版本。该版本升级至最新的 Markmap，引入了更多自定义选项，具体改进包括：
+
+- 可在单个 Markmap 标签中，通过 frontmatter 自定义：
+  - CSS 样式（实现自定义高度、宽度、响应式布局等）
+    <Aside type="tip">
+    自 v2.0.5 起，不再支持在 frontmatter 中设置样式。但你可以结合 `id` 选项直接在 `<style>` 标签中定义样式。
+    </Aside>
+  - Markmap 的 [JSON Options](https://markmap.js.org/docs/json-options#option-list)
+- 利用 Markmap 内置的 URL Builder 自动生成 CDN 地址
+- 根据语法自动生成相应的 CDN 标签
+- 支持深色模式与全屏按钮
+- 使用 TypeScript 重构，并覆盖了测试用例
+
+需要注意的是，由于部分实现细节已与 `hexo-markmap@1` 不同，如对上述新功能没有强烈需求，仍可继续使用 `hexo-markmap@1`。
+
+若需升级至 `hexo-markmap@2`，请参考以下步骤：
+
+<Steps>
+1. 使用你喜欢的包管理器安装 `hexo-markmap@2`：
+
+    <Tabs syncKey="pkg">
+      <TabItem label="pnpm">
+        ```sh
+        pnpm add hexo-markmap@2 -D
+        ```
+      </TabItem>
+      <TabItem label="npm">
+        ```sh
+        npm install hexo-markmap@2 --save-dev
+        ```
+      </TabItem>
+      <TabItem label="yarn">
+        ```sh
+        yarn add hexo-markmap@2 -D
+        ```
+      </TabItem>
+    </Tabs>
+
+2. 根据需要修改 `config.yml` 中的配置：
+
+   - 以下配置项**已不再支持**：
+    ```diff lang="yaml"
+      hexo_markmap:
+      -  pjax: false
+      -  katex: false
+      -  prism: false
+      -  lockView: false
+      -  fixSVGAttrNaN: false
+      ```
+      - 当前版本已放弃对 `pjax` 的兼容性；
+      - KaTeX 与 Prism.js 现可自动检测并生成相应的 CDN 标签；
+      - 同时将 frontmatter 中 `markmap` 的 `pan` 和 `zoom` 设为 `false`，即可达到与 `lockView` 相同的效果。
+   - `CDN` 配置逻辑也有所调整：
+      ```diff
+      hexo_markmap:
+      -  userCDN:
+      -    d3_js: https://fastly.jsdelivr.net/npm/d3@6
+      -    markmap_view_js: https://fastly.jsdelivr.net/npm/markmap-view@0.2.7
+      -    katex_css: https://fastly.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css
+      -    prism_css: https://fastly.jsdelivr.net/npm/prismjs@1.25.0/themes/prism.css
+      +  CDN: 'custom'
+      +  customCDN: 'https://fastly.jsdelivr.net/npm/'
+      ```
+      - 现在的 `CDN` 配置支持 `fastly`、`jsdelivr`、`unpkg` 三个选项以及 `custom` 自定义选项；
+      - 如果选择 `custom`，则 `customCDN` 的值将作为 CDN 前缀使用。
+
+    - 此外，之前可传入的 `depth` 参数以指定折叠深度已移除，你可以在 frontmatter 中使用 `options` 配置 `initialExpandLevel`。
+3. 更新你的 Markdown 文件中的 `markmap` 标签：
+
+    - 现在 `markmap` 标签支持 frontmatter 选项。你可以直接在标签中指定选项，例如：
+      ```markdown
+      {% markmap %}
+      ---
+      markmap:
+        colorFreezeLevel: 2
+      ---
+      # Markdown
+      # Syntax
+      {% endmarkmap %}
+      ```
+
+   - 你仍然可以直接在标签中自定义思维导图的高度，但默认情况下会根据内容进行计算：
+    ```diff
+    - {% markmap 300px %}
+    + {% markmap %}
+    # Markdown
+    # Syntax
+    {% endmarkmap %}
+    ```
+
+4. 最后，重新生成你的博客。
+</Steps>
+
+
+## 示例
+
+<details>
+````markdown
+{% markmap %}
+---
+markmap:
+  colorFreezeLevel: 2
+---
+
+## Links
+
+- [Website](https://markmap.js.org/)
+- [GitHub](https://github.com/gera2ld/markmap)
+
+## Related Projects
+
+- [coc-markmap](https://github.com/gera2ld/coc-markmap) for Neovim
+- [markmap-vscode](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode) for VSCode
+- [eaf-markmap](https://github.com/emacs-eaf/eaf-markmap) for Emacs
+
+## Features
+
+Note that if blocks and lists appear at the same level, the lists will be ignored.
+
+### Lists
+
+- **strong** ~~del~~ *italic* ==highlight==
+- `inline code`
+- [x] checkbox
+- Katex: $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$ <!-- markmap: fold -->
+  - [More Katex Examples](#?d=gist:af76a4c245b302206b16aec503dbe07b:katex.md)
+- Now we can wrap very very very very long text based on `maxWidth` option
+- Ordered list
+  1. item 1
+  2. item 2
+
+### Blocks
+<!-- To avoid hexo treat the following as code block, we need to use a list -->
+- ```js 
+  console.log('hello, JavaScript')
+  ```
+
+- | Products | Price |
+  |-|-|
+  | Apple | 4 |
+  | Banana | 2 |
+
+- ![](https://markmap.js.org/favicon.png)
+{% endmarkmap %}
+````
+</details>
+
+## 贡献者
+
+感谢所有的贡献者🥰！
+
+<a href="https://github.com/maxchang3/hexo-markmap/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=maxchang3/hexo-markmap" />
+</a>
+
+## Credits
+
+- 如果没有 [markmap](https://markmap.js.org/)，这个项目不可能存在。
+- 最初受到了 [hexo-simple-mindmap](https://github.com/HunterXuan/hexo-simple-mindmap) 的启发。
+- 感谢 [@coderxi1](https://github.com/coderxi1/) 对最初 2.0 版本的构思和实现！
+

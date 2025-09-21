@@ -1,0 +1,62 @@
+---
+title: Markmap Universe
+head:
+  - tag: title
+    content: Markmap Universe 🌌 在宇宙任何地方可视化您的 Markdown
+description: Markmap Universe 是一个基于 Markmap 开发工具的社区。
+template: splash
+hero:
+  tagline: Markmap Universe 是一个基于 <a href="https://markmap.js.org" target="_blank">Markmap</a> 开发工具的社区。
+  image:
+    alt: 一个闪闪发光、色彩鲜艳的标志
+    file: ~/assets/logo.png
+  actions:
+    - text: Overview
+      link: /zh-cn/overview/
+      icon: right-arrow
+    - text: 试试看
+      link: /repl/
+      icon: right-arrow
+    - text: GitHub 组织
+      link: https://github.com/markmap-universe
+      icon: github
+      variant: minimal
+banner:
+  content: |
+    <b>这不是 Markmap 的官方网站</b>。
+    如果您正在寻找官方网站，请访问 
+    <a href="https://markmap.js.org" target="_blank" rel="noopener">markmap.js.org</a>。
+
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import CardReadmore from '@/components/CardReadmore.astro';
+
+```markmap
+---
+id: home-markmap-example
+options:
+  color: ['#3D50F5','#B3C7FF']
+  pan: false
+---
+## 美观
+## 实用
+## 简单
+## 交互
+```
+
+<CardGrid>
+	<Card title="hexo-markmap" icon="document">
+		通过 markmap 在您的 hexo 博客中插入思维导图。
+		<CardReadmore href="/zh-cn/hexo-markmap/">开始使用</CardReadmore>
+	</Card>
+	<Card title="remark-markmap" icon="document">
+		一个通过 markmap 插入思维导图的 remark 插件。
+		<CardReadmore href="/zh-cn/remark-markmap/">开始使用</CardReadmore>
+	</Card>
+  	<Card title="VS Code Markmap Universe" icon="github">
+    VS Code Markmap Universe 扩展，
+    无缝支持 hexo-markmap 标签和代码块。
+		<CardReadmore href="https://github.com/markmap-universe/vscode-markmap-universe">开始使用</CardReadmore>
+	</Card>
+</CardGrid>
