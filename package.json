@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.36.0",
-    "@astrojs/vue": "^5.1.1",
+    "@astrojs/starlight": "^0.37.2",
+    "@astrojs/vue": "^5.1.4",
     "@codemirror/lang-markdown": "^6.3.4",
     "@codemirror/lang-yaml": "^6.1.2",
     "@codemirror/language": "^6.11.3",
@@ -20,7 +20,7 @@
     "@expressive-code/plugin-collapsible-sections": "^0.41.3",
     "@expressive-code/plugin-line-numbers": "^0.41.3",
     "@lezer/highlight": "^1.2.1",
-    "astro": "^5.13.9",
+    "astro": "^5.16.8",
     "codemirror": "^6.0.2",
     "markmap-common": "^0.18.9",
     "markmap-lib": "^0.18.12",
